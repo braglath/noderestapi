@@ -5,7 +5,9 @@ const jwt = require("jsonwebtoken");
 //! authenticate a token
 function authenticateToken(req, res, next) {
   const authHeader = req.headers["authorization"];
+  console.log('🚀 ~ file: auth.js ~ line 8 ~ authenticateToken ~ authHeader', authHeader);
   const token = authHeader && authHeader.split(" ")[1];
+  console.log('🚀 ~ file: auth.js ~ line 10 ~ authenticateToken ~ token', token);
   //? the above 2 will get the token from the header
   if (token == null) return res.sendStatus(401);
   jwt.verify(

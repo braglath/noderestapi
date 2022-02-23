@@ -27,6 +27,10 @@ const userSchema = new Schema({
 //! setting a json response and removing fields which we dont need to show in the response
 userSchema.set("toJSON", {
   transform: (document, returnedObject) => {
+    console.log(
+      "🚀 ~ file: user.model.js ~ line 30 ~ returnedObject",
+      returnedObject
+    );
     //? removing the _id , _v values and the encrypted password from the response
     returnedObject.id = returnedObject._id.toString();
     delete returnedObject._id;
